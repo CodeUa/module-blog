@@ -113,8 +113,23 @@
                             </a>
                         ]]></comment>
                     </field>
+                    <field id="build_comments" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Guest Can Write Comments</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <depends>
+                            <field id="type">build-in comments</field>
+                        </depends>
+                        <comment></comment>
+                    </field>
+                    <field id="new_comment_status" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>New Comment Status</label>
+                        <source_model>app\code\Magefan\Blog\Model\Config\Source\DefaultCommentStatus</source_model>
+                        <depends>
+                            <field id="type">build-in comments</field>
+                        </depends>
+                        <comment></comment>
+                    </field>
                 </group>
-
                 <group id="nextprev" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Preview and Next Post</label>
                     <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
