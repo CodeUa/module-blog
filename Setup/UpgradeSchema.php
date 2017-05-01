@@ -293,6 +293,83 @@ class UpgradeSchema implements UpgradeSchemaInterface
             );
         }
 
+        if (version_compare($version, '2.6.0') < 0){
+
+            $table = $setup->getConnection()->newTable(
+                $setup->getTable('magefan_blog_comment')
+            )->addColumn(
+                'comment_id',
+                \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                null,
+                ['identity' => true, 'nullable' => false, 'primary' => true],
+                'Comment ID'
+            )->addColumn(
+                'post_id',
+                 \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                 null,
+                ['nullable' => false],
+                'Post ID'
+            )->addColumn(
+                'customer_id',
+                \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                null,
+                ['nullable' => true],
+                'Customer Id'
+            )->addColumn(
+                'status',
+                \Magento\Framework\DB\Ddl\Table::TYPE_SMALLINT,
+                null,
+                ['nullable' => false],
+                'Comment status'
+            )->addColumn(
+                'author_type',
+                \Magento\Framework\DB\Ddl\Table::TYPE_SMALLINT,
+                null,
+                ['nullable' => false],
+                'Author Type'
+            )->addColumn(
+                'author_nickname',
+                \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                255,
+                ['nullable' => false],
+                'Comment Author Nickname'
+            )->addColumn(
+                'author_email',
+                \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                255,
+                ['nullable' => true],
+                'Comment Author Email'
+            )->addColumn(
+                'comment',
+                \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                '2M',
+                [],
+                'Comment'
+            )->addColumn(
+                'creation_time',
+                \Magento\Framework\DB\Ddl\Table::TYPE_TIMESTAMP,
+                null,
+                 ['nullable' => false],
+                 'creation_time'
+            )->addIndex(
+                $installer->getIdxName('magefan_blog_comment', ['post_id']),
+                ['post_id']
+            )->addIndex(
+                $installer->getIdxName('magefan_blog_comment', ['customer_id']),
+                ['customer_id']
+            )->addIndex(
+                $installer->getIdxName('magefan_blog_comment', ['status']),
+                ['status']
+            )->addForeignKey(
+                $installer->getFkName('magefan_blog_comment', 'post_id', 'magefan_blog_post', 'post_id'),
+                'post_id',
+                $installer->getTable('magefan_blog_post'),
+                'post_id',
+                \Magento\Framework\DB\Ddl\Table::ACTION_CASCADE
+            );
+            $setup->getConnection()->createTable($table);
+        }
+
         $setup->endSetup();
     }
 }
