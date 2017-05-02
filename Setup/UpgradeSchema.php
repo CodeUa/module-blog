@@ -361,13 +361,59 @@ class UpgradeSchema implements UpgradeSchemaInterface
                 $installer->getIdxName('magefan_blog_comment', ['status']),
                 ['status']
             )->addForeignKey(
+<<<<<<< HEAD
                 $installer->getFkName('magefan_blog_comment', 'post_id', 'magefan_blog_post', 'post_id'),
+=======
+                $installer->getFkName('magefan_blog_commnet', 'post_id', 'magefan_blog_post', 'post_id'),
+>>>>>>> f4dbbe394676c91f5d9b20ac5b17beb98aa0684f
                 'post_id',
                 $installer->getTable('magefan_blog_post'),
                 'post_id',
                 \Magento\Framework\DB\Ddl\Table::ACTION_CASCADE
             );
             $setup->getConnection()->createTable($table);
+<<<<<<< HEAD
+=======
+
+            /**
+             * Create table 'magefan_blog_commnet_store'
+             */
+            $table = $installer->getConnection()->newTable(
+                $installer->getTable('magefan_blog_commnet_store')
+            )->addColumn(
+                'commnet_id',
+                \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                null,
+                ['nullable' => false, 'primary' => true],
+                'Commnet ID'
+            )->addColumn(
+                'store_id',
+                \Magento\Framework\DB\Ddl\Table::TYPE_SMALLINT,
+                null,
+                ['unsigned' => true, 'nullable' => false, 'primary' => true],
+                'Store ID'
+            )->addIndex(
+                $installer->getIdxName('magefan_blog_commnet_store', ['store_id']),
+                ['store_id']
+            )->addForeignKey(
+                $installer->getFkName('magefan_blog_commnet_store', 'commnet_id', 'magefan_blog_commnet', 'commnet_id'),
+                'commnet_id',
+                $installer->getTable('magefan_blog_commnet'),
+                'commnet_id',
+                \Magento\Framework\DB\Ddl\Table::ACTION_CASCADE
+            )->addForeignKey(
+                $installer->getFkName('magefan_blog_commnet_store', 'store_id', 'store', 'store_id'),
+                'store_id',
+                $installer->getTable('store'),
+                'store_id',
+                \Magento\Framework\DB\Ddl\Table::ACTION_CASCADE
+            )->setComment(
+                'Magefan Blog Commnet To Store Linkage Table'
+            );
+            $installer->getConnection()->createTable($table);
+
+
+>>>>>>> f4dbbe394676c91f5d9b20ac5b17beb98aa0684f
         }
 
         $setup->endSetup();

@@ -26,6 +26,7 @@ class CommetType implements \Magento\Framework\Option\ArrayInterface
             ['value' => 'facebook', 'label' => __('Use Facebook Comments')],
             ['value' => 'disqus', 'label' => __('Use Disqus Comments')],
             ['value' => 'google', 'label' => __('Use Google Comments (beta)')],
+            ['value' => 'build-in comments', 'label' => __('Build-in Comments')],
         ];
     }
 
