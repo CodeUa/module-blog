@@ -295,7 +295,9 @@ class UpgradeSchema implements UpgradeSchemaInterface
 
         if (version_compare($version, '2.6.0') < 0)
         {
-
+             /**
+             * Create table 'magefan_blog_comment'
+             */
             $table = $setup->getConnection()->newTable(
                 $setup->getTable('magefan_blog_comment')
             )->addColumn(

@@ -5,7 +5,7 @@
  */
 
 /**
- * Used in creating options for Yes|No config value selection
+ * Used in creating options for Approved|Pennding config value selection
  *
  */
 namespace app\code\Magefan\Blog\Model\Config\Source;
@@ -20,7 +20,7 @@ class DefaultCommentStatus implements \Magento\Framework\Option\ArrayInterface
      */
     public function toOptionArray()
     {
-        return [0 => __('Pennding'), 1 => __('Approved')];
+        return [['value' => 1, 'label' => __('Approved')], ['value' => 0, 'label' => __('Pennding')]];
     }
 
     /**

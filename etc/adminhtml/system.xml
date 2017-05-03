@@ -113,11 +113,11 @@
                             </a>
                         ]]></comment>
                     </field>
-                    <field id="build_comments" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <field id="build_in_comments" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Guest Can Write Comments</label>
                         <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                         <depends>
-                            <field id="type">build-in comments</field>
+                            <field id="type">build-in_comments</field>
                         </depends>
                         <comment></comment>
                     </field>
@@ -125,7 +125,7 @@
                         <label>New Comment Status</label>
                         <source_model>app\code\Magefan\Blog\Model\Config\Source\DefaultCommentStatus</source_model>
                         <depends>
-                            <field id="type">build-in comments</field>
+                            <field id="type">build-in_comments</field>
                         </depends>
                         <comment></comment>
                     </field>
