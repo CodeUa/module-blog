@@ -20,7 +20,7 @@ class DefaultCommentStatus implements \Magento\Framework\Option\ArrayInterface
      */
     public function toOptionArray()
     {
-        return [['value' => 1, 'label' => __('Approved')], ['value' => 0, 'label' => __('Pennding')]];
+        return [0 => __('Pennding'), 1 => __('Approved')];
     }
 
     /**
