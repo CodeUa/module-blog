@@ -1,7 +1,7 @@
 <?php
 
 namespace Magefan\Blog\Model;
- 
+
 use \Magento\Framework\Model\AbstractModel;
  
 class Comment extends AbstractModel

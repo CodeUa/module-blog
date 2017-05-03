@@ -1,4 +1,5 @@
 <?php
+
 namespace Magefan\Blog\Model\ResourceModel\Comment;
 
 use \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
