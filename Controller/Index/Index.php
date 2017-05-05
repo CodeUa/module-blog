@@ -22,7 +22,7 @@ class Index extends \Magefan\Blog\App\Action\Action
         if (!$this->moduleEnabled()) {
             return $this->_forwardNoroute();
         }
-
+        var_dump("I am Here");
         $this->_view->loadLayout();
         $this->_view->renderLayout();
     }
