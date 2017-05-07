@@ -298,7 +298,6 @@ class UpgradeSchema implements UpgradeSchemaInterface
              /**
              * Create table 'magefan_blog_comment'
              */
-             
             $table = $setup->getConnection()->newTable(
                 $setup->getTable('magefan_blog_comment')
             )->addColumn(
