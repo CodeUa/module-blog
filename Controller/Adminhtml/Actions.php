@@ -108,6 +108,7 @@ abstract class Actions extends \Magento\Backend\App\Action
         $this->_view->getPage()->getConfig()->getTitle()->prepend($title);
         $this->_addBreadcrumb($title, $title);
         $this->_view->renderLayout();
+
     }
 
     /**

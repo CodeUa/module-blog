@@ -9,9 +9,9 @@
 namespace Magefan\Blog\Controller\Adminhtml\Comment;
 
 /**
- * Blog comment list controller
+ * Blog comment edit controller
  */
-class Index extends \Magefan\Blog\Controller\Adminhtml\Comment
+class Edit extends \Magefan\Blog\Controller\Adminhtml\Comment
 {
 
 }

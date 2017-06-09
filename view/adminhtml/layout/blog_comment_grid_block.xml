@@ -41,7 +41,7 @@
                 </block>
 
                 <block class="Magento\Backend\Block\Widget\Grid\ColumnSet" name="blog.comment.grid.columnSet" as="grid.columnSet">
-                   <!--  <arguments>
+                   <arguments>
                         <argument name="id" xsi:type="string">columnSet</argument>
                         <argument name="rowUrl" xsi:type="array">
                             <item name="path" xsi:type="string">*/*/edit</item>
@@ -49,7 +49,7 @@
                                 <item name="id" xsi:type="string">getId</item>
                             </item>
                         </argument>
-                    </arguments> -->
+                    </arguments>
                     <block class="Magento\Backend\Block\Widget\Grid\Column" as="id">
                         <arguments>
                             <argument name="header" xsi:type="string" translate="true">ID</argument>
@@ -62,16 +62,28 @@
                         <arguments>
                             <argument name="header" xsi:type="string" translate="true">Created</argument>
                             <argument name="index" xsi:type="string">creation_time</argument>
-                            <argument name="header_css_class" xsi:type="string">col-title</argument>
-                            <argument name="column_css_class" xsi:type="string">col-title</argument>
+                            <argument name="type" xsi:type="string">datetime</argument>
+                            <argument name="header_css_class" xsi:type="string">col-first-name</argument>
+                            <argument name="column_css_class" xsi:type="string">col-first-name</argument>
                         </arguments>
                     </block>
                     <block class="Magento\Backend\Block\Widget\Grid\Column" as="Status">
                         <arguments>
                             <argument name="header" xsi:type="string" translate="true">Status</argument>
                             <argument name="index" xsi:type="string">status</argument>
-                            <argument name="header_css_class" xsi:type="string">col-identifier</argument>
-                            <argument name="column_css_class" xsi:type="string">col-identifier</argument>
+                            <argument name="type" xsi:type="string">options</argument>
+                            <argument name="options" xsi:type="array">
+                                <item name="status_subscribed" xsi:type="array">
+                                    <item name="value" xsi:type="string">1</item>
+                                    <item name="label" xsi:type="string" translate="true">Enabled</item>
+                                </item>
+                                <item name="status_not_active" xsi:type="array">
+                                    <item name="value" xsi:type="string">0</item>
+                                    <item name="label" xsi:type="string" translate="true">Disabled</item>
+                                </item>
+                            </argument>
+                            <argument name="header_css_class" xsi:type="string">col-status</argument>
+                            <argument name="column_css_class" xsi:type="string">col-status</argument>
                         </arguments>
                     </block>
                     <block class="Magento\Backend\Block\Widget\Grid\Column" as="Nickname">

@@ -22,7 +22,6 @@ class Comment extends \Magento\Backend\Block\Widget\Grid\Container
     {
         $this->_controller = 'adminhtml_Blog';
         $this->_blockGroup = 'Magefan_Blog';
-        $this->_headerText = __('Comment');
         $this->_addButtonLabel = __('Add New Comment');
         parent::_construct();
     }

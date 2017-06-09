@@ -48,7 +48,7 @@
                 type="Magefan\Blog\Plugin\Plumrocket\Amp\SourcePagePlugin" sortOrder="10"/>
     </type>
 
-<!--     <type name="Magefan\Blog\Model\ResourceModel\Comment\Grid\Collection">
+    <type name="Magefan\Blog\Model\ResourceModel\Comment\Grid\Collection">
         <arguments>
             <argument name="mainTable" xsi:type="string">magefan_blog_comment</argument>
             <argument name="eventPrefix" xsi:type="string">magefan_blog_comment_grid_collection</argument>
@@ -56,10 +56,10 @@
             <argument name="resourceModel" xsi:type="string">Magefan\Blog\Model\ResourceModel\Comment</argument>
         </arguments>
     </type>
-    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+ <!--    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
-                <item name="magefan_blog_comment_listing_data_source" xsi:type="string">Magefan\Blog\Model\ResourceModel\Comment\Grid\Collection</item>
+                <item name="blog_comment_form" xsi:type="string">Magefan\Blog\Model\ResourceModel\Comment\Grid\Collection</item>
             </argument>
         </arguments>
     </type> -->
