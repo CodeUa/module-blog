@@ -12,4 +12,5 @@ class Collection extends AbstractCollection
     {
         $this->_init('Magefan\Blog\Model\Comment', 'Magefan\Blog\Model\ResourceModel\Comment');
     }
+
 }

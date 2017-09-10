@@ -76,11 +76,13 @@ class CommentDataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
             return $this->loadedData;
         }
         $items = $this->collection->getItems();
-        /** @var $tag \Magefan\Blog\Model\Tag */
-        foreach ($items as $tag) {
-            $this->loadedData[$tag->getId()] = $tag->getData();
+        /** @var $comment \Magefan\Blog\Model\Comment */
+        foreach ($items as $comment) {
+            $this->loadedData[$comment->getId()] = $comment->getData();
+            $this->loadedData[$comment->getId()]['title'] = $comment->getPost()->getTitle();
         }
 
+        /*
         $data = $this->dataPersistor->get('current_model');
         if (!empty($data)) {
             $tag = $this->collection->getNewEmptyItem();
@@ -88,6 +90,7 @@ class CommentDataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
             $this->loadedData[$tag->getId()] = $tag->getData();
             $this->dataPersistor->clear('current_model');
         }
+        */
 
         return $this->loadedData;
     }

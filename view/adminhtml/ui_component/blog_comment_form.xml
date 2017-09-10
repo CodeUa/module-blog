@@ -24,10 +24,23 @@
             <item name="back" xsi:type="string">Magefan\Blog\Block\Adminhtml\Edit\BackButton</item>
             <item name="delete" xsi:type="string">Magefan\Blog\Block\Adminhtml\Edit\DeleteButton</item>
             <item name="reset" xsi:type="string">Magefan\Blog\Block\Adminhtml\Edit\ResetButton</item>
-            <item name="duplicate" xsi:type="string">Magefan\Blog\Block\Adminhtml\Edit\DuplicateButton</item>
+<!--             <item name="duplicate" xsi:type="string">Magefan\Blog\Block\Adminhtml\Edit\DuplicateButton</item> -->
             <item name="save" xsi:type="string">Magefan\Blog\Block\Adminhtml\Edit\SaveButton</item>
             <item name="save_and_continue" xsi:type="string">Magefan\Blog\Block\Adminhtml\Edit\SaveAndContinueButton</item>
         </item>
+    </argument>
+    <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="childDefaults" xsi:type="array">
+                    <item name="fieldAction" xsi:type="array">
+                        <item name="provider" xsi:type="string">commentGrid</item>
+                        <item name="target" xsi:type="string">selectComment</item>
+                        <item name="params" xsi:type="array">
+                            <item name="0" xsi:type="string">${ $.$data.rowIndex }</item>
+                        </item>
+                    </item>
+                </item>
+            </item>
     </argument>
     <dataSource name="comment_form_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
@@ -64,8 +77,8 @@
                 </item>
             </argument>
         </field>
-
-          <field name="post">
+        
+        <field name="post">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="dataType" xsi:type="string">text</item>
@@ -74,6 +87,7 @@
                     <item name="source" xsi:type="string">comment</item>
                     <item name="sortOrder" xsi:type="number">0</item>
                     <item name="dataScope" xsi:type="string">title</item>
+                                        <!-- <item name="link" xsi:type="string">{{baseUrl}}customer/index/new</item> -->
                     <item name="validation" xsi:type="array">
                         <item name="required-entry" xsi:type="boolean">true</item>
                     </item>
@@ -87,7 +101,7 @@
                     <item name="label" xsi:type="string" translate="true">Author</item>
                     <item name="formElement" xsi:type="string">input</item>
                     <item name="source" xsi:type="string">comment</item>
-                    <item name="sortOrder" xsi:type="number">1</item>
+                    <item name="sortOrder" xsi:type="number">10</item>
                     <item name="dataScope" xsi:type="string">author_type</item>
                     <item name="validation" xsi:type="array">
                         <item name="required-entry" xsi:type="boolean">true</item>
@@ -102,7 +116,7 @@
                     <item name="label" xsi:type="string" translate="true">Author email</item>
                     <item name="formElement" xsi:type="string">input</item>
                     <item name="source" xsi:type="string">comment</item>
-                    <item name="sortOrder" xsi:type="number">2</item>
+                    <item name="sortOrder" xsi:type="number">40</item>
                     <item name="dataScope" xsi:type="string">author_email</item>
                     <item name="validation" xsi:type="array">
                         <item name="required-entry" xsi:type="boolean">true</item>
@@ -119,7 +133,7 @@
                     <item name="formElement" xsi:type="string">select</item>
                     <item name="source" xsi:type="string">post</item>
                     <item name="dataScope" xsi:type="string">status</item>
-                    <item name="sortOrder" xsi:type="number">3</item>
+                    <item name="sortOrder" xsi:type="number">20</item>
                 </item>
             </argument>
         </field>
@@ -130,7 +144,7 @@
                     <item name="label" xsi:type="string" translate="true">Nickname</item>
                     <item name="formElement" xsi:type="string">input</item>
                     <item name="source" xsi:type="string">comment</item>
-                    <item name="sortOrder" xsi:type="number">4</item>
+                    <item name="sortOrder" xsi:type="number">30</item>
                     <item name="dataScope" xsi:type="string">author_nickname</item>
                     <item name="validation" xsi:type="array">
                         <item name="required-entry" xsi:type="boolean">true</item>
@@ -179,28 +193,32 @@
                 </argument>
             </container> -->
         <!-- </container> -->
-        <field name="comment">
+      <field name="content">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="label" xsi:type="string"/>
                     <item name="formElement" xsi:type="string">wysiwyg</item>
-                    <item name="source" xsi:type="string">comment</item>
+                    <item name="source" xsi:type="string">block</item>
                     <item name="wysiwyg" xsi:type="boolean">true</item>
-                    <item name="dataScope" xsi:type="string">comment</item>
+                    <item name="dataScope" xsi:type="string">content</item>
                     <item name="additionalClasses" xsi:type="string">admin__field-wide</item>
-                    <item name="sortOrder" xsi:type="number">6</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
                 </item>
             </argument>
         </field>
-            <field name="publish_time">
+                 <field name="date">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="label" xsi:type="string" translate="true">Created</item>
                     <item name="dataType" xsi:type="string">text</item>
                     <item name="formElement" xsi:type="string">date</item>
-                    <item name="source" xsi:type="string">comment</item>
-                    <item name="dataScope" xsi:type="string">creation time</item>
-                    <item name="sortOrder" xsi:type="number">5</item>
+                    <item name="source" xsi:type="string">page</item>
+                    <item name="dataScope" xsi:type="string">creation_time</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="validate-date" xsi:type="boolean">true</item>
+                    </item>
                 </item>
             </argument>
         </field>

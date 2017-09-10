@@ -80,7 +80,7 @@ abstract class Actions extends \Magento\Backend\App\Action
      */
     public function execute()
     {
-        $_preparedActions = ['index', 'grid', 'new', 'edit', 'save', 'duplicate', 'delete', 'config', 'massStatus'];
+        $_preparedActions = ['index', 'grid', 'new', 'edit', 'save', 'delete', 'config', 'massStatus'];
         $_action = $this->getRequest()->getActionName();
         if (in_array($_action, $_preparedActions)) {
             $method = '_'.$_action.'Action';
@@ -251,29 +251,29 @@ abstract class Actions extends \Magento\Backend\App\Action
      * Duplicat action
      * @return void
      */
-    protected function _duplicateAction()
-    {
-        try {
-            $originModel = $this->_getModel();
-            if (!$originModel->getId()) {
-                throw new \Exception("Item is not longer exist.", 1);
-            }
+    // protected function _duplicateAction()
+    // {
+    //     try {
+    //         $originModel = $this->_getModel();
+    //         if (!$originModel->getId()) {
+    //             throw new \Exception("Item is not longer exist.", 1);
+    //         }
 
-            $model = $originModel->duplicate();
+    //         $model = $originModel->duplicate();
 
-            $this->messageManager->addSuccess(__('%1 has been duplicated.', $model->getOwnTitle()));
-            $this->_redirect('*/*/edit', [$this->_idKey => $model->getId()]);
-        } catch (Exception $e) {
-            $this->messageManager->addException(
-                $e,
-                __('Something went wrong while saving this %1. %2',
-                    strtolower($model->getOwnTitle()),
-                    $e->getMessage()
-                )
-            );
-            $this->_redirect('*/*/edit', [$this->_idKey => $originModel->getId()]);
-        }
-    }
+    //         $this->messageManager->addSuccess(__('%1 has been duplicated.', $model->getOwnTitle()));
+    //         $this->_redirect('*/*/edit', [$this->_idKey => $model->getId()]);
+    //     } catch (Exception $e) {
+    //         $this->messageManager->addException(
+    //             $e,
+    //             __('Something went wrong while saving this %1. %2',
+    //                 strtolower($model->getOwnTitle()),
+    //                 $e->getMessage()
+    //             )
+    //         );
+    //         $this->_redirect('*/*/edit', [$this->_idKey => $originModel->getId()]);
+    //     }
+    // }
 
     /**
      * Before model Save action
